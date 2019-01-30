@@ -6,7 +6,7 @@ pipeline {
         sh """
         mkdir -p roles
         ansible-galaxy install -p roles -r requirements.yml
-        ansible-playbook -vvvv -i inventory playbook.yml
+        ansible-playbook -i inventory playbook.yml
         """
        }
       }
