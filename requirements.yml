@@ -1,0 +1,7 @@
+#Download and install ansible roles
+- name: epam-exam-nginx-role
+  src: https://github.com/Cakemanator/epam-exam-nginx-role
+- name: epam-exam-docker-role
+  src: https://github.com/Cakemanator/epam-exam-docker-role
+- name: epam-exam-webapp-role
+  src: https://github.com/Cakemanator/epam-exam-webapp-role
