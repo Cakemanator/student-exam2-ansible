@@ -20,7 +20,7 @@ pipeline {
 		 script {
 		    def nginx_ip = sh(script: "docker inspect --format '{{ .NetworkSettings.IPAddress }}' nginx-balancer", returnStdout: true)
                     //I want to get the same response here
-                    def response = sh(script: 'curl -Is ' + nginx_ip + ' | head -1', returnStdout: true)
+                    def response = sh(script: 'curl -Is ' + nginx_ip, returnStdout: true)
                     echo '=========================Response===================' + response
       }	 
      }
