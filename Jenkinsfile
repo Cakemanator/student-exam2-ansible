@@ -4,7 +4,7 @@ pipeline {
     stage ('Run playbook') {
      steps {
         sh """
-        mkdir roles
+        mkdir -p roles
         ansible-galaxy install -p roles -r requirements.yml
         ansible-playbook -i inventory playbook.yml
         """
