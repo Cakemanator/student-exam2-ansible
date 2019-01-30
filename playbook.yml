@@ -1,0 +1,51 @@
+---
+- hosts: Nodes
+  tasks:
+#Install docker
+   - include_role:
+       name: epam-exam-docker-role
+#Make first webapp container
+   - include_role:
+       name: epam-exam-webapp-role
+       public: yes
+     vars:
+       docker_container_name: 'webapp1'
+       src_port: 5001
+   - name: Check ip for first app
+     become: yes
+     become_method: sudo
+     shell: docker inspect webapp1 | grep '"IPAddress"' | head -n 1 | awk '{print $2}' | sed -e 's/^"//' -e 's/",//'
+     register: ip1
+#Make second webapp container
+   - include_role:
+       name: epam-exam-webapp-role
+       public: yes
+     vars:
+       docker_container_name: 'webapp2'
+       src_port: 5002
+   - name: Check ip for first app
+     become: yes
+     become_method: sudo
+     shell: docker inspect webapp2 | grep '"IPAddress"' | head -n 1 | awk '{print $2}' | sed -e 's/^"//' -e 's/",//'
+     register: ip2
+#Make third webapp container
+   - include_role:
+       name: epam-exam-webapp-role
+       public: yes
+     vars:
+       docker_container_name: 'webapp3'
+       src_port: 5003
+   - name: Check ip for first app
+     become: yes
+     become_method: sudo
+     shell: docker inspect webapp3 | grep '"IPAddress"' | head -n 1 | awk '{print $2}' | sed -e 's/^"//' -e 's/",//'
+     register: ip3
+#Make Nginx container
+   - include_role:
+       name: epam-exam-nginx-role
+       public: yes
+     vars:
+       app_name: 'webapp'
+       server1_url: '{{ip1.stdout}}:5000'
+       server2_url: '{{ip2.stdout}}:5000'
+       server3_url: '{{ip3.stdout}}:5000'
