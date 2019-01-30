@@ -11,10 +11,9 @@ pipeline {
        }
       }
 	   stage ('Wait for nginx restart'){
-	     steps {
-                     def sleep_time = 5
-                     sleep sleep_time.toInteger() // seconds
-		   }
+		   steps {
+                     sleep 5 // seconds
+	    }
 	   }
 	stage ('Http - request'){
 	 steps{
