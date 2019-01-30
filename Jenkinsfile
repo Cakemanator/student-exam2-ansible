@@ -12,8 +12,12 @@ pipeline {
       }
 	stage ('Http - request'){
 	 steps{
-		 sh "echo ${curl -Is localhost:5001 | head -1}"
-	 }
+		 script {
+                    //I want to get the same response here
+                    def response = sh(script: 'curl -Is 172.17.0.55:5000 | head -1', returnStdout: true)
+                    echo '=========================Response===================' + response
+      }	 
+     }
     }    
    }
   }
