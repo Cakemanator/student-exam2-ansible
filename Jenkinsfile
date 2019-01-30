@@ -12,7 +12,7 @@ pipeline {
       }
 	stage ('Http - request'){
 	 steps{
-		sh "echo $(curl -Is localhost:5001 | head -1)"
+		 sh "echo ${curl -Is localhost:5001 | head -1}"
 	 }
     }    
    }
