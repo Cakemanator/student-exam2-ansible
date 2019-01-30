@@ -23,7 +23,7 @@
      vars:
        docker_container_name: 'webapp2'
        src_port: 5002
-   - name: Check ip for first app
+   - name: Check ip for second app
      become: yes
      become_method: sudo
      shell: docker inspect webapp2 | grep '"IPAddress"' | head -n 1 | awk '{print $2}' | sed -e 's/^"//' -e 's/",//'
@@ -35,7 +35,7 @@
      vars:
        docker_container_name: 'webapp3'
        src_port: 5003
-   - name: Check ip for first app
+   - name: Check ip for third app
      become: yes
      become_method: sudo
      shell: docker inspect webapp3 | grep '"IPAddress"' | head -n 1 | awk '{print $2}' | sed -e 's/^"//' -e 's/",//'
