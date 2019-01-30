@@ -10,6 +10,10 @@ pipeline {
         """
        }
       }
-    }
+	stage ('Http - request'){
+	 steps{
+		sh "curl -Is localhost:5001 | head -1"
+	 }
+    }    
+   }
   }
-  
