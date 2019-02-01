@@ -6,7 +6,7 @@ pipeline {
         sh """
         mkdir -p roles
         ansible-galaxy install -p roles -r requirements.yml
-	ansible-vault decrypt ssh/ansible --vault-password-file=pass
+	ansible-vault decrypt ssh/ansible --vault-password-file=/home/jenkins/pass
         ansible-playbook -i inventory playbook.yml
         """
        }
