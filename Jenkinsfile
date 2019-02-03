@@ -23,9 +23,9 @@ pipeline {
                     //I want to get the same response here
                     def response = sh(script: 'curl -s ' + nginx_ip + ' | grep hostname' , returnStdout: true)
                     echo response
-		    def response = sh(script: 'curl -s ' + nginx_ip + ' | grep hostname' , returnStdout: true)
+		    response = sh(script: 'curl -s ' + nginx_ip + ' | grep hostname' , returnStdout: true)
                     echo response
-		    def response = sh(script: 'curl -s ' + nginx_ip + ' | grep hostname' , returnStdout: true)
+		    response = sh(script: 'curl -s ' + nginx_ip + ' | grep hostname' , returnStdout: true)
                     echo response
       }	 
      }
