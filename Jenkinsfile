@@ -13,7 +13,7 @@ pipeline {
       }
 	   stage ('Wait for nginx restart'){
 		   steps {
-                     sleep 5 // seconds
+                     sleep 30 // seconds
 	    }
 	   }
 	stage ('Http - requests'){
