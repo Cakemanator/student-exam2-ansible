@@ -8,7 +8,7 @@ pipeline {
         ansible-galaxy install -p roles -r requirements.yml
 	ansible-vault decrypt ssh/ansible --vault-password-file=/home/jenkins/pass
 	ansible-vault decrypt ssh/ansible.pub --vault-password-file=/home/jenkins/pass
-	ansible-vault decrypt ssh/ansible.known_hosts --vault-password-file=/home/jenkins/pass
+	ansible-vault decrypt ssh/known_hosts --vault-password-file=/home/jenkins/pass
         ansible-playbook -i inventory playbook.yml
         """
        }
