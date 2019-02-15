@@ -1,2 +1,2 @@
 [Nodes]
-172.17.0.5    ansible_connection=ssh ansible_user=jenkins
+172.17.0.8    ansible_connection=ssh ansible_user=jenkins
