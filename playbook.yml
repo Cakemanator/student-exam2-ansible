@@ -11,7 +11,7 @@
      vars:
        docker_container_name: 'webapp1'
        docker_image_name: 'korados/epamexam'
-       docker_image_build: '2'
+       docker_image_build: '1'
        hostname: 'webapp1'
        src_port: 5001
 #Make second webapp container
@@ -21,7 +21,7 @@
      vars:
        docker_container_name: 'webapp2'
        docker_image_name: 'korados/epamexam'
-       docker_image_build: '2'
+       docker_image_build: '1'
        hostname: 'webapp2'
        src_port: 5002
 #Make third webapp container
@@ -31,7 +31,7 @@
      vars:
        docker_container_name: 'webapp3'
        docker_image_name: 'korados/epamexam'
-       docker_image_build: '2'
+       docker_image_build: '1'
        hostname: 'webapp3'
        src_port: 5003
 #Make Nginx container
